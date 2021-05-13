@@ -1,38 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+* {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
 .App {
-  text-align: center;
+  width: 100%;
+  margin-bottom: 100px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App .nav {
+  width: 80%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.links {
+  display: flex;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.links a {
+  text-decoration: none;
+  padding: 0 0 5px 0;
+  margin-right: 40px;
+  color: #505f98;
+  font: 14px;
+  cursor: pointer;
+  position: relative;
+}
+.links a::after{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  content: '';
+  background-color: #505f98;
+  height: 2px;
+  width: 0%;
+  transition: .5s;
+  transform-origin: right;
+}
+.links a:hover::after{
+  width: 100%;
+}
+.App .nav .logo {
+  color: #37447e;
+  margin-left: -150px;
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+.App .nav button {
+  background: #111b47;
+  border-radius: 2px;
+  border: none;
+  color: #fff;
+  padding: 6px 40px;
+  cursor: pointer;
+}
+.background {
+  position: absolute;
+  height: 800px;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+/* first section */
+.first-sec {
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.first-sec .f-content {
+  margin-left: 150px;
+  margin-top: 50px;
+}
+.first-sec .f-content h1 {
+  width: 566px;
+  font-size: 50px;
+  line-height: 66px;
+  color: #091133;
+  font-family: 'Roboto', sans-serif;
+}
+.first-sec .f-content p {
+  margin: 30px 0;
+  width: 539px;
+  line-height: 25px;
+  color: #505f98;
+}
+.first-sec img{
+  width: 450px;
+}
+.first-sec .buttons button{
+  background: #111b47;
+  border-radius: 2px;
+  border: none;
+  color: #fff;
+  padding: 8px 40px;
+  margin-right: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.first-sec .buttons button:last-child{
+  background-color: transparent;
+  color: #111b47;
+  border: 2px solid #111b47;
+  transition: .5s;
+}
+.first-sec .buttons button:last-child:hover{
+  background: #111b47;
+  color: #fff;
+}
+#secondimg{
+  margin-top: 50px;
+  margin-right:100px;
+  width:450px;
+}
+.icon-container{
+  display: flex;
+  margin-top: 50px;
+}
+.icon-container .icon-part{
+  margin-right: 50px;
+}
+.icon-container .icon-part img{
+  width: 30px;
+}
+.icon-container .icon-part h3{
+  margin: 7px 0;
+  font-weight: 500;
+  font-size: 16px;
+}
+.icon-container .icon-part p{
+  margin: 0;
+  width: 300px;
+  font-size: 14px;
+  color: #5D6970;
+  line-height: 20px;
+}
+.hamburger{
+  z-index: 11;
+  display: none;
+  width: 95%;
+  margin: 20px auto;
+  justify-content: space-between;
+  align-items: center;
+}
+.hamburger .logo{
+  color: #37447e;
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+.hamburger .links{
+  display: none;
+}
+.hamburger.active .links{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position:fixed;
+  top: 0;
+  left: 0;
+  /* z-index: 10; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #505f98;
+}
+.hamburger.active .links a{
+  color: #fff;
+  font-size: 20px;
+  margin: 10px;
+}
+.hamburger .lines{
   display: flex;
   flex-direction: column;
+  width: 25px;
+  height: 15px;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.hamburger .lines .line{
+  width: 100%;
+  transition: 1s;
+  border-radius: 25px;
+  height: 2px;
+  background-color: #000;
 }
+.hamburger.active .lines .line2{
+  opacity: 0;
+}
+.hamburger.active .lines .line1{
+  transform: rotate(765deg) translate(6px,2px);
+}
+.hamburger.active .lines .line3{
+  transform: rotate(855deg) translate(-7px, 3px);
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+}
+/* responsive */
+@media (max-width:1300px){
+  .first-sec .f-content {
+    margin-left: 80px;
   }
-  to {
-    transform: rotate(360deg);
+  #secondimg{
+    margin-top: 50px;
+    margin-right:20px;
+    width:400px;
+  }
+}
+@media (max-width:1180px){
+  .first-sec img{
+    width: 350px;
+  }
+  .second{
+    flex-direction: column;
+  }
+  #secondimg{
+    width: auto;
+    margin: 50px auto 0;
+  }
+  .first-sec .f-content {
+    margin-left: 30px;
+  }
+}
+@media (max-width:950px){
+ .App .nav{
+    display: none;
+  }
+  .hamburger{display: flex;}
+  .first-sec {
+    width: 100%;
+    margin-top: 100px;
+   flex-direction: column;
+  }
+  .first-sec .f-content {
+   width: 90%;
+  }
+  .first-sec .f-content h1 {
+    width: 95%;
+    font-size: 40px;
+    line-height: 56px;
+  }
+  .first-sec .f-content p {
+    width:90%;
+  }
+  .first-sec img{
+    width: 400px;
+    align-self:flex-end;
+  }
+  .second{
+    margin-top: 50px;
+  }
+}
+@media (max-width:680px){
+  .first-sec img,#secondimg{
+    width: 320px;
+  }
+  .first-sec{margin-top: 30px;}
+  .first-sec .f-content {
+    margin-left: 15px;
+    width: 95%;
+  }
+.icon-container{
+  flex-direction: column;
+  margin-top: 30px;
+}
+.icon-container .icon-part{
+  margin-top: 20px;
+}
+.background{
+  width: 400px;
+}
+}
+@media (max-width:468px){
+  .first-sec .buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .first-sec .buttons button{
+   width: 45%;
+   padding: 15px 0;
   }
 }
